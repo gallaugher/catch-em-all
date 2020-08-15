@@ -40,6 +40,14 @@ class ListViewController: UIViewController {
         view.addSubview(activityIndicator)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            let destination = segue.destination as! DetailViewController
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            destination.creature = creatures.creatureArray[selectedIndexPath.row]
+        }
+    }
+    
     func loadAll() {
         if creatures.urlString.hasPrefix("http") {
             creatures.getData {

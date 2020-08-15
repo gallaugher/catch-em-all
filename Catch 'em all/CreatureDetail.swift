@@ -1,5 +1,5 @@
 //
-//  Creatures.swift
+//  CreatureDetail.swift
 //  Catch 'em all
 //
 //  Created by John Gallaugher on 8/15/20.
@@ -8,19 +8,22 @@
 
 import Foundation
 
-class Creatures {
+class CreatureDetail {
     
     private struct Returned: Codable {
-        var count: Int
-        var next: String?
-        var results: [Creature]
+        var height: Double
+        var weight: Double
+        var sprites: Sprites
     }
     
-
+    private struct Sprites: Codable {
+        var front_default: String
+    }
     
-    var count = 0
-    var urlString = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
-    var creatureArray: [Creature] = []
+    var height = 0.0
+    var weight = 0.0
+    var imageURL = ""
+    var urlString = ""
     
     func getData(completed: @escaping ()->()) {
         print("🕸 We are accessing the url \(urlString)")
@@ -42,9 +45,9 @@ class Creatures {
             do {
                 let returned = try JSONDecoder().decode(Returned.self, from: data!)
                 print("😎 Here is what was returned \(returned)")
-                self.creatureArray = self.creatureArray + returned.results
-                self.urlString = returned.next ?? ""
-                self.count = returned.count
+                self.height = returned.height
+                self.weight = returned.weight
+                self.imageURL = returned.sprites.front_default
             } catch {
                 print("😡 JSON ERROR: thrown when we tried to decode from Returned.self with data")
             }
