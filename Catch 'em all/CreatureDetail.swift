@@ -17,7 +17,7 @@ class CreatureDetail {
     }
     
     private struct Sprites: Codable {
-        var front_default: String
+        var front_default: String?
     }
     
     var height = 0.0
@@ -47,7 +47,7 @@ class CreatureDetail {
                 print("😎 Here is what was returned \(returned)")
                 self.height = returned.height
                 self.weight = returned.weight
-                self.imageURL = returned.sprites.front_default
+                self.imageURL = returned.sprites.front_default ?? ""
             } catch {
                 print("😡 JSON ERROR: thrown when we tried to decode from Returned.self with data")
             }

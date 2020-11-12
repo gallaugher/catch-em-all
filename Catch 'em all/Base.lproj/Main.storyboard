@@ -52,7 +52,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="hay-gr-aW6">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="j6Z-2Q-zRk"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="vhg-PC-Nmx"/>
                         <barButtonItem key="leftBarButtonItem" title="Load All" id="h9a-Wq-Bfm">
                             <connections>
                                 <action selector="loadAllButtonPressed:" destination="BYZ-38-t0r" id="4xP-gI-ISf"/>

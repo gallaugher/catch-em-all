@@ -83,6 +83,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == creatures.creatureArray.count-1 && creatures.urlString.hasPrefix("http") {
             activityIndicator.startAnimating()
             self.view.isUserInteractionEnabled = false
+            print("📣 indexPath.row = \(indexPath.row) and creatures.creatureArray.count = \(creatures.creatureArray.count) We are calling getData for URL \(creatures.urlString)")
             creatures.getData {
                 DispatchQueue.main.async {
                     self.navigationItem.title = "\(self.creatures.creatureArray.count) of \(self.creatures.count) Pokemon"
